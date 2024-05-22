@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+
+
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        body,
+        .container {
+            overflow-x: hidden;
+        }
+
+
+
+        .navbar {
+            background-color: #000000;
+        }
+
+        .navbar-brand {
+            font-family: 'Inria Serif', serif;
+            color: #ffffff;
+            
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            margin: 0 15px;
+        }
+
+
+
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .navbar-brand,
+        .navbar-nav {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar-nav .nav-link#shop,
+        .navbar-nav .nav-link#brand {
+
+            color: #ffffff;
+            font-family: 'Inria Serif', serif;
+        }
+
+        .bi {
+            color: #fffcfc;
+
+        }
+
+        .site-footer {
+            display: flex;
+            font-family: 'Inria Serif', serif;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #ffffff;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .right-section a img {
+            margin-left: 1rem;
+            height: 24px;
+        }
+
+        .right-content .icon i {
+            color: #000 !important;
+            margin-right: 10px;
+
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        .abalone-text,
+        .copyright,
+        .right-section {
+            margin: 0.5rem 0;
+        }
+
+        .right-section {
+            margin-top: 1rem;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        .container {
+            padding-top: 5px;
+
+        }
+
+        .card {
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            font-family: 'Inria Serif', serif;
+            text-align: center;
+        }
+
+        .card-img {
+            padding-inline: 20px;
+            margin-inline: 20px;
+            padding-block: 13px;
+
+        }
+
+        .img {
+            width: 80%;
+            height: 200px;
+        }
+
+        .card-text {
+            font-family: 'Inria Serif', serif;
+        }
+
+
+        .card-text {
+            color: #000000;
+            text-align: center;
+        }
+
+
+        #searchInput {
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 5px 20px;
+            font-size: 12px;
+            transition: width 0.3s ease-in-out;
+            width: 0;
+            outline: none;
+            font-family: 'Inria Serif', serif;
+
+        }
+
+
+        #searchInput:focus {
+            width: 120px;
+        }
+
+        .bi-search {
+            font-size: 15px;
+        }
+
+        #searchContainer {
+            position: relative;
+        }
+
+        #searchInput {
+            position: absolute;
+            top: 20px;
+            right: 20%;
+            display: none;
+        }
+
+        .card-text2 {
+            text-decoration: line-through;
+            font-family: 'Inria Serif', serif;
+
+        }
+        .card-text3 {
+            font-family: 'Inria Serif', serif;
+            color: rgb(5, 134, 5);
+
+        }
+
+        .dropdown-toggle {
+            margin-top: 20%;
+            padding: 2px 5px;
+            font-family: 'Inria Serif', serif;
+            border: none;
+        }
+
+        .dropdown-menu {
+            background-color: black;
+            color: white;
+            border: none;
+            font-family: 'Inria Serif', serif;
+        }
+
+        .dropdown-menu a {
+            color: white;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus {
+            background-color: gray;
+        }
+
+        .book {
+            margin-top: 20px;
+            font-family: 'Inria Serif', serif;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            font-family: 'Inria Serif', serif;
+            margin-top: 15%;
+            margin-bottom: 10px;
+        }
+
+        .pagination .page-link {
+            color: rgb(255, 255, 255);
+            background-color: #080505;
+            border: 1px solid #000000;
+            padding: 2px 7px;
+            margin: 0 3px;
+            text-decoration: none;
+            border-radius: 9px;
+            cursor: pointer;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #f8f9fa;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #040d16;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: #7f8285;
+            pointer-events: none;
+            background-color: #ffffff;
+            border-color: #dee2e6;
+        }
+
+        .pagination .page-item:first-child .page-link,
+        .pagination .page-item:last-child .page-link {
+            border-radius: 10px;
+        }
+        
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'u:home' %}">AlamS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a id="shop" class="nav-link" href="{% url 'u:home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="shop" class="nav-link" href="{% url 'u:shop' %}">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="brand" class="nav-link" href="{% url 'u:gallery' %}">Gallery</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="searchIcon"><i class="bi bi-search"></i></a>
+                            <input type="text" id="searchInput" name="search" style="display: none;">
+                        </li>
+
+                    </form>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:profile' %}"><i class="bi bi-person"></i></a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:cart' %}"><i class="bi bi-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:wishlist' %}"><i class="bi bi-heart"></i></a>
+                    </li>
+
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="d-flex justify-content-around">
+        <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Filter
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                <li><a class="dropdown-item" href="{% url 'u:shop' %}">All</a></li>
+                {% for category in categories %}
+                <li><a class="dropdown-item" href="{% url 'u:shop' %}?category={{ category.id }}">{{ category.name}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="book">
+            <h6>Just One More Chapter . . .</h6>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-toggle" type="button" id="sortByDropdown" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Sort By
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="sortByDropdown">
+                <li><a class="dropdown-item" href="{% url 'u:shop' %}?sort=price_low_to_high">Price Low to High</a></li>
+                <li><a class="dropdown-item" href="{% url 'u:shop' %}?sort=price_high_to_low">Price High to Low</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            {% for prod in products %}
+            <div class="col-md-3 mb-5 d-flex col">
+                <div class="card ">
+
+                    <div class="card-img">
+                        <a href="{% url 'u:item' prod.id %}">
+                            <img src="{{ prod.images.first.image.url }}" class="img" alt="Product Image">
+                        </a>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ prod.name }}</h5>
+                            <p class="card-text">{{ prod.description }}</p>
+                            <p class="card-text"> {{ prod.category.name }}</p>
+                            <div style="display: flex;justify-content: center;gap: 20px;">
+                                {% if prod.percentage != 0 %}
+                                <p class="card-text2">Rs {{ prod.price }}</p>
+                                <!-- <p style="text-small">{{prod.percentage}} %</p> -->
+                                {% endif %}
+                                <p class="card-text3">Rs {{ prod.discount_price }}</p>
+                            </div>
+                        </div>
+                        <div class="py-5 px-2 color-black">
+                            <!-- <a href="{% url 'u:cart' %}" id="added-to-cart"><i class="material-icons">add_shopping_cart</i></a> -->
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- pagination -->
+    <div class="pagination">
+        {% if products.has_previous %}
+        <span class="page-item">
+            <a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a>
+        </span>
+        {% else %}
+        <span class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+        </span>
+        {% endif %}
+
+        <!-- Page numbers -->
+        {% if products.number == 2 %}
+        {% for num in products.paginator.page_range %}
+        <span class="page-item {% if products.number == num %}active{% endif %}">
+            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+        </span>
+        {% endfor %}
+        {% else %}
+        <span class="page-item {% if products.number == 1 %}active{% endif %}">
+            <a class="page-link" href="?page=1">1</a>
+        </span>
+        <span class="page-item {% if products.number == 2 %}active{% endif %}">
+            <a class="page-link" href="?page=2">2</a>
+        </span>
+        {% endif %}
+
+        <!-- Next link -->
+        {% if products.has_next %}
+        <span class="page-item">
+            <a class="page-link" href="?page={{ products.next_page_number }}">Next</a>
+        </span>
+        {% else %}
+        <span class="page-item disabled">
+            <a class="page-link" href="#">Next</a>
+        </span>
+        {% endif %}
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="left-section">
+                <span class="abalone-text">Abalone</span>
+            </div>
+            <div class="center-section">
+                <span class="copyright">copyright©Ebbs|2024</span>
+            </div>
+            <div class="right-content">
+                <a href="#" class="icon instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="icon twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="icon linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const searchIcon = document.getElementById("searchIcon");
+                const searchInput = document.getElementById("searchInput");
+
+                // Show/hide search input field when search icon is clicked
+                searchIcon.addEventListener("click", function () {
+                    searchInput.style.display = (searchInput.style.display === "none") ? "block" : "none";
+                    if (searchInput.style.display === "block") {
+                        searchInput.focus(); // Focus on input field when it's displayed
+                    }
+                });
+            });
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+            integrity="sha512-K2h7EtEaLljw8lIbVmSdWYU2PNT9dUd4ft5q3wug+y05ZgSagZBmUOOQFBmtJYWnSKgpHnCg0SX27TzOvtarbg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

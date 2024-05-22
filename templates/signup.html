@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .signup-button {
+            margin-top: 10px;
+            background-color: #010101;
+            font-family: 'Inria Serif', serif;
+            color: white;
+            padding: 3px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container {
+            padding: 10px;
+            background-color: #b8b8b8;
+            border-radius: 3px 80px 3px 80px;
+            font-family: 'Inria Serif', serif;
+
+        }
+
+        .signup-heading {
+            font-family: 'Inria Serif', serif;
+        }
+
+        .form-control {
+            font-size: 1rem;
+            padding: 8px;
+        }
+
+       
+
+        .align-items-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-label {
+            padding: 13px 7px;
+        }
+
+       
+
+        .error{
+        display: flex;
+        justify-content: center;
+        color: red;
+        font-family: 'Inria Serif', serif;
+
+       }
+
+
+    </style>
+</head>
+
+<body>
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-lg-6">
+                    <div class="container form-container">
+                        <div class="container form-container d-flex flex-column align-items-center mb-4">
+                            <h4 class="signup-heading">Signup To AlamS</h24>
+                        </div>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" id="name" name="name" class="form-control" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" id="email" name="email" class="form-control" required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Phone Number:</label>
+                                        <input type="tel" id="phone" class="form-control" name="phone" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" id="password" name="password" class="form-control"
+                                            required />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                                        <input type="password" id="confirm_password" name="confirm_password"
+                                            class="form-control" required />
+                                    </div>
+                                     <div class="mb-3">
+                                        <label for="referral_code" class="form-label">Use Referral</label>
+                                        <input type="code" id="referral_code" name="referral_code"
+                                            class="form-control"/>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button id="signup-button" class="signup-button">Signup</button>
+                                    </div>
+
+                                    <div class="btn2 text-center mt-3">
+                                        <label>Already have an account? <a style="color: #010101;"
+                                                href="{% url 'r:login' %}" >Login</a></label>
+                                    </div>
+                                    {% if name_err %}
+                                    <p class="error">{{name_err}}</p>
+                                    {% endif %}
+
+                                    {% if email_err %}
+                                    <p class="error">{{email_err}}</p>
+                                    {% endif %}
+
+                                    {% if pass_err %}
+                                    <p class="error">{{pass_err}}</p>
+                                    {% endif %}
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

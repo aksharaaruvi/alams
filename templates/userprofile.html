@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #000000;
+        }
+
+        .navbar-brand {
+            font-family: 'Inria Serif', serif;
+            color: #ffffff;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .navbar-brand {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-item {
+            flex: -1;
+            justify-content: flex-end;
+        }
+
+        .navbar-nav {
+
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar-nav .nav-link#shop,
+        .navbar-nav .nav-link#brand {
+
+            color: #ffffff;
+            font-family: 'Inria Serif', serif;
+        }
+
+        .bi {
+            color: #fffcfc;
+        }
+
+        .custom-heading {
+            font-family: 'Inria Serif', serif;
+            margin-top: 20px;
+            letter-spacing: 10px;
+        }
+
+        .paragraph {
+            font-family: 'Inria Serif', serif;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 4%;
+            letter-spacing: 4px;
+
+        }
+
+        .site-footer {
+            display: flex;
+            font-family: 'Inria Serif', serif;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 1rem 0;
+            background-color: #ffffff;
+        }
+
+        .footer-underline {
+            border: none;
+            border-top: 3px solid #050829;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .abalone-text {
+            margin-right: auto;
+        }
+
+        .copyright {
+            margin: 0 auto;
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .right-section a img {
+            margin-left: 1rem;
+            height: 24px;
+        }
+
+        .right-content .icon i {
+            color: #000 !important;
+            margin-right: 40px;
+
+        }
+
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .site-footer {
+
+                margin-top: 10%;
+            }
+
+        }
+
+
+        .abalone-text,
+        .copyright,
+        .right-section {
+            margin: 0.5rem 0;
+        }
+
+        .right-section {
+            margin-top: 1rem;
+        }
+
+
+        .center-section {
+            margin-left: 8%;
+        }
+
+        .price-details {
+            flex-direction: row;
+            background-color: rgb(217, 217, 217);
+            padding: 50px 10px;
+            border-radius: 20px;
+            font-family: 'Inria Serif', serif;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 25%;
+            margin-right: 25%;
+
+        }
+
+        .price-details th,
+        .price-details td {
+            padding: 12px;
+        }
+
+        h5 {
+            margin-top: 20px;
+            text-align: center;
+            font-family: 'Inria Serif', serif;
+        }
+
+        .dropdown-menu{
+            font-family: 'Inria Serif', serif;
+        }
+
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            padding: 4px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            text-align: center;
+
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            text-align: center;
+
+        }
+
+
+        .checkout {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 2px 4px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'u:home' %}">AlamS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a id="brand" class="nav-link" href="{% url 'u:home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="brand" class="nav-link" href="{% url 'u:shop' %}">Shop</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a id="brand" class="nav-link" href="{% url 'u:gallery' %}">Gallery</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" style="display: flex; text-align: end;">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:profile' %}"><i class="bi bi-person"></i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:cart' %}"><i class="bi bi-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:wishlist' %}"><i class="bi bi-heart"></i></a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-filter"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'u:orderlist' %}">Your Orders</a></li>
+                            <li><a class="dropdown-item" href="{% url 'u:editprofile' %}">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'u:addaddress' %}">Add Address</a></li>
+                            <li><a class="dropdown-item" href="{% url 'u:changepassword' %}">change password</a></li>
+                            <li><a class="dropdown-item" href="{% url 'u:wallet' %}">My wallet</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <h5 style="text-align: center;">Hello, {{ custom_user.name }}</h5>
+    <div class="price-details">
+        <table style="text-align: center; margin: 0 auto;">
+            <tr>
+                <th>Name </th>
+                <td><input type="text" id="name" name="name" value="{{custom_user.name}}" readonly></td>
+            </tr>
+            <tr>
+                <th>Email </th>
+                <td><input type="email" id="email" name="email" value="{{custom_user.email}}" readonly></td>
+            </tr>
+            <tr>
+                <th>Phone Number </th>
+                <td><input type="tel" id="phone_number" name="phone_number" value="{{custom_user.phone_number}}"
+                        readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Gender </th>
+                <td><input type="text" id="gender" name="gender"
+                        placeholder="Edit here" value="{{custom_user.gender}}"
+                        readonly>
+                </td>
+            </tr>
+            <tr>
+                <th>Age </th>
+                <td><input type="text" id="age" name="age" placeholder="Edit here"
+                        value="{{custom_user.age}}" readonly></td>
+            </tr>
+
+            <tr>
+                <th>Referral Code </th>
+                <td><input type="text" id="code" name="code" placeholder="Edit here"
+                        value="{{custom_user.referral_code}}" readonly></td>
+            </tr>
+        </table>
+    </div>
+    <h5 style="text-align: center;">Address</h5>
+    <div class="price-details">
+        <table style="text-align: center; margin: 0 auto;">
+    {% if addresses %}
+
+            {% for add in addresses %}
+            <tr>
+                <th>Address:</th>
+                <td>
+                    <input type="text" id="address" name="address"
+                        value="{{add.name}}.{{add.phoneno}}.{{add.street}},{{add.landmark}}.{{add.houseno}}.{{add.city}}.{{add.pincode}}" readonly>
+                </td>
+
+
+                <td>
+                    <a href="{% url 'u:editaddress' add.id %}" class="no-underline">
+                        <button type="button" class="checkout">Edit Address</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'u:addremove' add.id %}">
+                        <button type="button" class="btn btn" aria-label="Delete">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </a>
+
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+    <h6 class="text-center">You may add your address</h6>
+    {% endif %}
+
+        </table>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="left-section">
+                <span class="abalone-text">Abalone</span>
+            </div>
+            <div class="center-section">
+                <span class="copyright">copyright©Ebbs|2024</span>
+            </div>
+            <div class="right-content">
+                <a href="#" class="icon instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="icon twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="icon linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+            integrity="sha512-K2h7EtEaLljw8lIbVmSdWYU2PNT9dUd4ft5q3wug+y05ZgSagZBmUOOQFBmtJYWnSKgpHnCg0SX27TzOvtarbg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

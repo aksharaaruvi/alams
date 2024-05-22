@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+	<style>
+		/* Footer styles */
+		.site-footer {
+			display: flex;
+			font-family: 'Inria Serif', serif;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding: 1rem 0;
+			background-color: #ffffff;
+			/* Light gray background */
+		}
+
+		.footer-underline {
+			border: none;
+			border-top: 3px solid #050829;
+			/* Black underline */
+			width: 100%;
+		}
+
+		.footer-content {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			padding: 1rem;
+		}
+
+		.abalone-text {
+			margin-right: auto;
+			/* Pushes text to the left */
+		}
+
+		.copyright {
+			margin: 0 auto;
+			/* Centers the copyright text */
+		}
+
+		.right-section {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			margin-left: auto;
+			/* Pushes icons to the right */
+		}
+
+		/* Social media icons */
+		.right-section a img {
+			margin-left: 1rem;
+			/* Space between icons */
+			height: 24px;
+			/* Adjust icon size as needed */
+		}
+
+		.right-content .icon i {
+			color: #000 !important;
+			margin-right: 40px;
+
+		}
+
+
+		/* Media query for smaller screens */
+		@media (max-width: 768px) {
+			.footer-content {
+				flex-direction: column;
+			}
+
+			.site-footer {
+
+				margin-top: 10%;
+			}
+
+		}
+
+
+		.price-details {
+			flex-direction: row;
+			background-color: rgb(214, 214, 214);
+			padding: 30px 35px;
+			border-radius: 20px;
+			font-family: 'Inria Serif', serif;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			margin-left: 20%;
+			margin-right: 20%;
+
+		}
+
+
+
+
+
+		.product-info {
+			margin-left: 20px;
+		}
+
+		.quantity-input {
+			display: flex;
+			align-items: center;
+			margin-top: 5px;
+		}
+
+
+
+		.remove-btn {
+			background-color: #000000;
+			color: #ffffff;
+			padding: 5px 20px;
+			border-radius: 10px;
+			margin-top: 5px;
+			margin-left: 150px;
+			border: none;
+			cursor: pointer;
+
+
+
+
+		}
+
+		.checkout-btn {
+			background-color: #000000;
+			color: #ffffff;
+			padding: 5px 40px;
+			border: none;
+			cursor: pointer;
+			border-radius: 10px;
+			margin-top: 10%;
+		}
+
+
+		.price-details th,
+		.price-details td {
+			padding: 15px;
+		}
+
+
+
+		h4 {
+			margin-top: 40px;
+			text-align: center;
+			font-family: 'Inria Serif', serif;
+			font-size: 30px;
+		}
+
+
+
+		@media (max-width: 768px) {
+			.product-item {
+				flex: 1 1 100%;
+			}
+		}
+
+
+		.abalone-text,
+		.copyright,
+		.right-section {
+			margin: 0.5rem 0;
+		}
+
+		.right-section {
+			margin-top: 1rem;
+		}
+
+
+		.center-section {
+			margin-left: 8%;
+		}
+
+
+
+		@media (max-width: 768px) {
+    .price-details {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }}
+
+
+		.input-container {
+			display: flex;
+			margin-left: 60px;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+		}
+
+		.verified-label {
+			color: green;
+			margin-left: 5px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<form method="post">
+		{% csrf_token %}
+		<h4 style="text-align: center;">Edit Profile</h4>
+		<div class="price-details">
+			<table style="text-align: center; margin: 0 auto;">
+				<tr>
+					<th>Name:</th>
+					<td><input type="text" id="name" name="name" value="{{userr.name}}"></td>
+				</tr>
+				<tr>
+					<th>Email:</th>
+					<td>
+						<div class="input-container">
+							<input type="email" id="email" name="email" value="{{userr.email}}" readonly>
+							<span class="verified-label">Verified</span>
+						</div>
+					</td>
+				</tr>
+
+
+				<tr>
+					<th>Phone Number:</th>
+					<td><input type="tel" id="phone_number" name="phone_number" value="{{userr.phone_number}}"></td>
+				</tr>
+
+				<tr>
+					<th>Gender:</th>
+					<td><input type="text" id="gender" name="gender" value="{{userr.gender}}"></td>
+				</tr>
+				<tr>
+					<th>Age:</th>
+					<td><input type="text" id="age" name="age" value="{{userr.age}}"></td>
+				</tr>
+			</table>
+			<button type="submit" class="checkout-btn">Save Changes</button>
+		</div>
+	</form>
+
+	<br>
+
+
+	<br>
+
+	<br>
+	<br>
+
+
+
+	<!-- Footer -->
+	<footer class="site-footer">
+		<!-- <hr class="footer-underline"> -->
+		<br>
+		<br>
+		<div class="footer-content">
+			<div class="left-section">
+				<span class="abalone-text">Abalone</span>
+			</div>
+			<div class="center-section">
+				<span class="copyright">copyright©Ebbs|2024</span>
+			</div>
+			<div class="right-content">
+				<a href="#" class="icon instagram"><i class="bi bi-instagram"></i></a>
+				<a href="#" class="icon twitter"><i class="bi bi-twitter"></i></a>
+				<a href="#" class="icon linkedin"><i class="bi bi-linkedin"></i></a>
+			</div>
+
+		</div>
+
+		<!-- Add your content here -->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+			integrity="sha512-K2h7EtEaLljw8lIbVmSdWYU2PNT9dUd4ft5q3wug+y05ZgSagZBmUOOQFBmtJYWnSKgpHnCg0SX27TzOvtarbg=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>

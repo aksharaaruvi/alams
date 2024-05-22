@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Fondamento;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #ffffff;
+            color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 20px;
+            border-right: 5px solid #000000;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+
+        .search-container button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 5px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style for the sidebar links */
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            /* Align the text to the left */
+            margin-top: 20px;
+            /* Adjust the top margin */
+        }
+
+        .sidebar ul li {
+            padding: 10px 0;
+        }
+
+        .sidebar ul li a {
+            display: flex;
+            /* Align icon and text horizontally */
+            align-items: center;
+            padding: 10px;
+            color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #D9D9D9;
+            /* Light background color on hover */
+        }
+
+        /* Additional spacing between icon and text */
+        .sidebar ul li a span {
+            margin-right: 10px;
+
+        }
+
+
+
+        .unbutton {
+
+            background-color: #f11414;
+            color: white;
+            font-family: 'Inria Serif', serif;
+            border: none;
+            padding: 5px 7px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+
+        .libutton {
+
+            background-color: #5ef11a;
+            font-family: 'Inria Serif', serif;
+            color: white;
+            border: none;
+            padding: 5px 7px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        .addbutton {
+            background-color: #2e8993;
+            font-family: 'Inria Serif', serif;
+            color: white;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .editbutton {
+            background-color: #2e8993;
+            font-family: 'Inria Serif', serif;
+            color: white;
+            border: none;
+            padding: 5px 7px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        /* Style for the dashboard cards */
+        .card {
+            background-color: #fff;
+            color: #000000;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adjust table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .pagination .page-link {
+            color: black;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            padding: 2px 7px;
+            margin: 0 3px;
+            text-decoration: none;
+            border-radius: 7px;
+            margin-bottom: 5%;
+            cursor: pointer;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #f8f9fa;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #040d16;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+            pointer-events: none;
+            background-color: #ffffff;
+            border-color: #dee2e6;
+        }
+
+        .pagination .page-item:first-child .page-link,
+        .pagination .page-item:last-child .page-link {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h4
+            style="text-align: center; text-decoration: underline; text-underline-offset: 0.25em; font-family: Fondamento;">
+            A L A M S</h4>
+        <ul>
+            <li><a href="{% url 'a:dashboard' %}"><span class="bi bi-bar-chart"></span> Dashboard</a></li>
+            <li><a href="{% url 'a:productmanagement' %}"><span class="bi bi-box"></span> Products</a></li>
+            <li><a href="{% url 'a:adminuser' %}"><span class="bi bi-person"></span> Users</a></li>
+            <li><a href="{% url 'a:adminorder' %}"><span class="bi bi-cart"></span> Orders</a></li>
+            <li><a href="{% url 'a:categorymanagement' %}"><span class="bi bi-folder"></span> Category</a></li>
+            <li><a href="{% url 'a:admincoupon' %}"><span class="bi bi-ticket"></span> Coupons</a></li>
+            <li><a href="{% url 'a:salesreport' %}"><span class="bi bi-graph-up"></span> Sales Report</a></li>
+            <li><a href="{% url 'r:logout' %}"><span class="bi bi-box-arrow-right"></span> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content" style="justify-content: space-between;">
+        <h5>Product Management</h5>
+        <div style="display: flex; justify-content: space-between;">
+            <!-- <div class="search-container">
+                <input type="text" name="search" placeholder="tap here !">
+                <button type="submit"><span class="bi bi-search"></span></button>
+            </div> -->
+            <a href="{% url 'a:addproduct' %}"><button class="addbutton">Add Products</button> </a>
+            <a href="{% url 'a:addoffer' %}"><button class="addbutton">Add Offers</button> </a>
+        </div>
+        <br>
+    {% if products %}
+        <table>
+            <thead>
+                <tr>
+                    <th>sl|no</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.stock }}</td>
+
+                    {% if product.images %}
+                    <td><img src="{{ product.images.first.image.url }}" alt="ProductImage" style="width: 50px;"></td>
+                    {% else %}
+                    <td>
+                        <h6>No products were added !!!</h6>
+                    </td>
+                    {% endif %}
+
+                    <td>
+                        <a href="{% url 'a:editproduct' product.id %}"><button class="editbutton">Edit</button></a>
+                        {% if product.listt %}
+                        <a href="{% url 'a:unlistlist' %}?prod_id={{product.id}}"><button
+                                class="libutton">List</button></a>
+                        {% else %}
+                        <a href="{% url 'a:unlistlist' %}?prod_id={{product.id}}"><button
+                                class="unbutton">unlist</button></a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <!-- Previous link -->
+        {% if products.has_previous %}
+        <span class="page-item">
+            <a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a>
+        </span>
+        {% else %}
+        <span class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+        </span>
+        {% endif %}
+    
+        <!-- Page numbers -->
+        {% if products.number == 2 %}
+            {% for num in products.paginator.page_range %}
+            <span class="page-item {% if products.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </span>
+            {% endfor %}
+        {% else %}
+            <span class="page-item {% if products.number == 1 %}active{% endif %}">
+                <a class="page-link" href="?page=1">1</a>
+            </span>
+            <span class="page-item {% if products.number == 2 %}active{% endif %}">
+                <a class="page-link" href="?page=2">2</a>
+            </span>
+        {% endif %}
+    
+        <!-- Next link -->
+        {% if products.has_next %}
+        <span class="page-item">
+            <a class="page-link" href="?page={{ products.next_page_number }}">Next</a>
+        </span>
+        {% else %}
+        <span class="page-item disabled">
+            <a class="page-link" href="#">Next</a>
+        </span>
+        {% endif %}
+    </div>
+    {% else %}
+    <h5 style="text-align: center;">Currently no products added.</h5>
+    {% endif %}
+    
+</body>
+
+</html>

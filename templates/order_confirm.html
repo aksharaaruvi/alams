@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Ebbs</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+       .order-confirmation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.order-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 40%; 
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.continue-shopping-button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    text-decoration: none; 
+}
+
+    </style>
+</head>
+<body>
+    <div class="order-confirmation-container">
+        <div class="order-content">
+            <img src="/static/images/videos/cartwalk.gif" alt="Video" style="width: 100%;">
+            <p class="text-center">Thank you for your order! Your order has been successfully placed.</p>
+            <p class="text-center">Thank you for shopping with us..!</p>
+            <a href="{% url 'u:shop' %}" class="btn continue-shopping-button">Continue Shopping</a>
+        </div>
+    </div>
+</body>
+
+</html>

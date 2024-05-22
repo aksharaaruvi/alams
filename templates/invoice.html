@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: 'Inria Serif', serif;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .invoice-table {
+            width: 70%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .invoice-table th, .invoice-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .invoice-footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h4 style="text-align: center;">Invoice</h4>
+    <div class="section">
+        <h4>User Details</h4>
+        <p>User Name: {{ user.name }}</p>
+        <p>Email: {{ user.email }}</p>
+
+        {% if order.orderaddress %}
+        <h4>Order Address</h4>
+        <p>Landmark: {{ order.orderaddress.landmark  }}</p>
+        <p>Street: {{ order.orderaddress.street  }}</p>
+
+        <p>City: {{ order.orderaddress.city }}</p>
+        {% endif %}
+    </div>
+    
+
+    <div class="section">
+        <h4>Product Details</h4>
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products.all %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ product.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+
+    <div class="section">
+        <h4>Order Details</h4>
+        <p>Order ID: {{ order.id }}</p>
+        <p>Date: {{ order.date }}</p>
+        <p>Status: {{ order.status }}</p>
+    </div>
+
+    <div class="section">
+        <h4>Payment Summary</h4>
+        <p>payment method : {{order.payment_type}}</p>
+        <p>Discount amount : {{order.discount}}</p>
+        <p></p>
+    </div>
+
+
+    <div class="section">
+        <h4>Shop Details</h4>
+        <p>Shop Name: AlamS</p>
+        <p>Kochi | Mumbai</p>
+        <p>Akshara Aruvi</p>
+    </div>
+<br>
+<br>
+    <div class="section invoice-footer">
+        <p>Thankyou for shopping with us</p>
+    </div>
+
+</body>
+</html>

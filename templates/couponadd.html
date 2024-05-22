@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit category</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inria Serif', serif;
+
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #ffffff;
+            color: #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 20px;
+            border-right: 5px solid #000000;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .sidebar ul li {
+            padding: 10px 0;
+        }
+
+        .sidebar ul li a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #D9D9D9;
+        }
+
+        .sidebar ul li a span {
+            margin-right: 10px;
+
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #2e8993;
+            font-family: 'Inria Serif', serif;
+            color: white;
+            padding: 3px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        .error{
+        display: flex;
+        justify-content: center;
+        color: red;
+        font-family: 'Inria Serif', serif;
+
+       }
+       
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <!-- Sidebar content goes here -->
+        <h4
+            style="text-align: center; text-decoration: underline; text-underline-offset: 0.25em; font-family: Fondamento;">
+            A L A M S</h4>
+        <ul>
+            <li><a href=""><span class="bi bi-bar-chart"></span> Dashboard</a></li>
+            <li><a href="{% url 'a:productmanagement' %}"><span class="bi bi-box"></span> Products</a></li>
+            <li><a href="{% url 'a:adminuser' %}"><span class="bi bi-person"></span> Users</a></li>
+            <li><a href="{% url 'a:adminorder' %}"><span class="bi bi-cart"></span> Orders</a></li>
+            <li><a href="{% url 'a:categorymanagement' %}"><span class="bi bi-folder"></span> Category</a></li>
+            <li><a href="{% url 'a:admincoupon' %}"><span class="bi bi-ticket"></span> Coupons</a></li>
+            <li><a href="{% url 'a:salesreport' %}"><span class="bi bi-graph-up"></span> Sales Report</a></li>
+            <li><a href="{% url 'r:logout' %}"><span class="bi bi-box-arrow-right"></span> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content" style="justify-content: space-between;">
+        <h4>ADD Coupons[A L A M S]</h4>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="count">Count :</label>
+            <input type="text" id="count" name="count" required>
+
+            <label for="code">Code :</label>
+            <input type="text" id="code" name="code" required>
+
+
+            <label for="disprice">Discount price :</label>
+            <input type="text" id="disprice" name="disprice" required>
+
+            <!-- <label for="start">Starting date :</label>
+            <input type="text" id="start" name="start" required>
+
+
+            <label for="end">Ending date :</label>
+            <input type="text" id="end" name="end" required> -->
+
+            <input type="submit" value="ADD">
+
+            {% if error %}
+            <p class="error">{{error}}</p>
+            {% endif %}
+                
+            {% if err %}
+            <p class="error">{{err}}</p>
+            {% endif %}
+
+        </form>
+    </div>
+</body>
+
+</html>

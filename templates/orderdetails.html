@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>orders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #000000;
+        }
+
+        .navbar-brand {
+            font-family: 'Inria Serif', serif;
+            color: #ffffff;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .navbar-brand {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-item {
+            flex: -1;
+            justify-content: flex-end;
+        }
+
+        .navbar-nav {
+
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar-nav .nav-link#shop,
+        .navbar-nav .nav-link#brand {
+
+            color: #ffffff;
+            font-family: 'Inria Serif', serif;
+        }
+
+        .bi {
+            color: #fffcfc;
+        }
+
+        .custom-heading {
+            font-family: 'Inria Serif', serif;
+            margin-top: 20px;
+            letter-spacing: 10px;
+        }
+
+        .paragraph {
+            font-family: 'Inria Serif', serif;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 4%;
+            letter-spacing: 4px;
+
+        }
+
+        .site-footer {
+            display: flex;
+            font-family: 'Inria Serif', serif;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 1rem 0;
+            background-color: #ffffff;
+            margin-top: 100px;
+        }
+
+        .footer-underline {
+            border: none;
+            border-top: 3px solid #050829;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .abalone-text {
+            margin-right: auto;
+        }
+
+        .copyright {
+            margin: 0 auto;
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .right-section a img {
+            margin-left: 1rem;
+            height: 24px;
+        }
+
+        .right-content .icon i {
+            color: #000 !important;
+            margin-right: 40px;
+
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .site-footer {
+
+                margin-top: 10%;
+            }
+
+        }
+        .order-details {
+            margin-top: 30px;
+            font-family: 'Inria Serif', serif;
+
+        }
+
+        .order-details .heading {
+            text-align: center;
+            font-family: 'Inria Serif', serif;
+            margin-bottom: 20px;
+        }
+
+        .order-details .address {
+            margin-bottom: 20px;
+        }
+
+        .order-details .order-summary {
+            margin-bottom: 20px;
+        }
+
+        .product-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            font-family: 'Inria Serif', serif;
+
+        }
+
+        .product-item {
+            border: 1px solid #ccc;
+            padding: 5px 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            font-family: 'Inria Serif', serif;
+            border-radius: 15px;
+
+        }
+
+        .product-item img {
+            max-width: 6%;
+            max-height:100%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .product-item h3 {
+            margin-top: 30px;
+            font-size: 18px;
+            font-family: 'Inria Serif', serif;
+
+        }
+
+        .product-item p {
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .product-item {
+                width: 100%;
+            }
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'u:home' %}">AlamS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a id="brand" class="nav-link" href="{% url 'u:home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="brand" class="nav-link" href="{% url 'u:shop' %}">Shop</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a id="brand" class="nav-link" href="{% url 'u:gallery' %}">Gallery</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" style="display: flex; text-align: end;">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:profile' %}"><i class="bi bi-person"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:cart' %}"><i class="bi bi-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href=""><i class="bi bi-heart"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="container order-details">
+        <h5 class="heading">Order Details</h5>
+
+        <div class="address">
+            <h4>Address</h4>
+            <p>{{order.orderaddress.name}}</p>
+            <p> {{ order.orderaddress.houseno }} {{ order.orderaddress.street }} </p>
+            <p>{{ order.orderaddress.city }} , {{ order.orderaddress.pincode }}</p>
+        </div>
+
+        <div class="order-summary">
+            <h4>Order Summary</h4>
+            <p>Total : ₹ {{ order.total_orderprice }}</p>
+            <p>Discount : ₹ {{order.discount}}</p>
+            <p>Payment Method : {{ order.payment_type }}</p>
+            <p>Order Status : {{ order.status }}</p>
+        </div>
+
+        {% for product in order.product.all %}
+        <div class="product-details">
+            <div class="product-item">
+                <img src="{{ product.images.first.image.url }}" alt="Product Image">
+                <h3>{{ product.name }}</h3>
+                <p style="color: green;">₹ {{ product.discount_price }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="left-section">
+                <span class="abalone-text">Abalone</span>
+            </div>
+            <div class="center-section">
+                <span class="copyright">copyright©Ebbs|2024</span>
+            </div>
+            <div class="right-content">
+                <a href="#" class="icon instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="icon twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="icon linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+            integrity="sha512-K2h7EtEaLljw8lIbVmSdWYU2PNT9dUd4ft5q3wug+y05ZgSagZBmUOOQFBmtJYWnSKgpHnCg0SX27TzOvtarbg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>

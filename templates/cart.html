@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+        integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+        .body {
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: #000000;
+            /* Black background */
+        }
+
+        .navbar-brand {
+            font-family: 'Inria Serif', serif;
+            color: #ffffff;
+            /* White color */
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+            /* Bright color on hover */
+        }
+
+        .navbar-brand {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-item {
+            flex: -1;
+            justify-content: flex-end;
+        }
+
+        .navbar-nav {
+
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar-nav .nav-link#shop,
+        .navbar-nav .nav-link#brand {
+
+            color: #ffffff;
+            font-family: 'Inria Serif', serif;
+        }
+
+        .bi {
+            color: #fffcfc;
+
+        }
+
+
+
+        .site-footer {
+            display: flex;
+            margin-top: 150px;
+            font-family: 'Inria Serif', serif;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 1rem 0;
+            background-color: #ffffff;
+            margin-top: 22%;
+        }
+
+        .footer-underline {
+            border: none;
+            margin-top: 50px;
+            border-top: 3px solid #050829;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .abalone-text {
+            margin-right: auto;
+        }
+
+        .copyright {
+            margin: 0 auto;
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .right-section a img {
+            margin-left: 1rem;
+            height: 24px;
+        }
+
+        .right-content .icon i {
+            color: #000 !important;
+            margin-right: 40px;
+
+        }
+
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .site-footer {
+
+                margin-top: 10%;
+            }
+
+        }
+
+
+        .abalone-text,
+        .copyright,
+        .right-section {
+            margin: 0.5rem 0;
+        }
+
+        .right-section {
+            margin-top: 1rem;
+        }
+
+
+        .center-section {
+            margin-left: 8%;
+        }
+
+
+        .cart-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Inria Serif', serif;
+        }
+
+        .delivery-address,
+        .price-details {
+            font-family: 'Inria Serif', serif;
+        }
+
+        .delivery-address {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row-reverse;
+            margin-top: 10px;
+            font-family: 'Inria Serif', serif;
+
+        }
+
+        .price-details {
+            display: flex;
+            flex-direction: column;
+            padding: 6px 5px;
+            background-color: rgb(182, 182, 182);
+            border-radius: 10px;
+            font-family: 'Inria Serif', serif;
+        }
+
+        table {
+            font-size: 15px;
+            margin: 10px 25px 10px 25px;
+        }
+
+        td,
+        th {
+            font-weight: normal;
+        }
+
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #c4c4c4;
+            color: #000000;
+            border-radius: 20px;
+            font-family: 'Inria Serif', serif;
+        }
+
+        .delivery-address-h6 {
+            font-size: 15px;
+        }
+
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border-radius: 5px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+        }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .prod-details {
+            display: flex;
+        }
+
+        .quantity-input button {
+            background-color: #f0f0f0;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            font-size: 12px;
+            padding: 1px 8px;
+            border-radius: 5px;
+        }
+
+
+
+        .quantity-input h6 {
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 12px;
+            padding: 5px 8px;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+
+
+        .edit-btn {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 2px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+
+        }
+
+        .remove-btn {
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            height: fit-content;
+        }
+
+       
+        .checkout-btn {
+            background-color: #000000;
+            width: 100%;
+            color: #ffffff;
+            padding: 2px 6px;
+            border: none;
+            cursor: pointer;
+            border-radius: 7px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .product-item {
+                flex: 1 1 100%;
+            }
+        }
+
+        .empty-cart-text {
+            margin-top: 50%;
+            font-family: 'Inria Serif', serif;
+            font-size: 20px;
+        }
+
+        .delivery-address-h6{
+            font-family: 'Inria Serif', serif;
+
+        }
+        .avatar-lg {
+            height: 5rem;
+            width: 5rem;
+        }
+
+        .font-size-18 {
+            font-size: 16px !important;
+        }
+
+        .text-truncate {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        .w-xl {
+            min-width: 160px;
+        }
+
+
+        .card {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            justify-content: center;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #c4c4c4c4;
+            background-clip: border-box;
+            border: 1px solid #eff0f2;
+            border-radius: 1rem;
+            font-family: 'Inria Serif', serif;
+
+        }
+
+        .toaster {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: green;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .toaster.show {
+            display: block;
+        }
+
+        .card-text2 {
+            text-decoration: line-through;
+            font-family: 'Inria Serif', serif;
+
+        }
+        .card-text3 {
+            font-family: 'Inria Serif', serif;
+            color: rgb(5, 134, 5);
+
+        }
+    </style>
+</head>
+
+<body>
+
+    {% load static %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'u:home' %}">AlamS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a id="shop" class="nav-link" href="{% url 'u:home' %}">Home</a>
+                    </li>
+                    <a id="shop" class="nav-link" href="{% url 'u:shop' %}">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="brand" class="nav-link" href="{% url 'u:gallery' %}">Gallery</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" style="display: flex; text-align: end;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:profile' %}"><i class="bi bi-person"></i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:cart' %}"><i class="bi bi-cart"></i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'u:wishlist' %}"><i class="bi bi-heart"></i></a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% if cart %}
+
+    <div class="container py-5">
+        <div class="row px-3  gap-2 display-flex justify-content-around">
+            {% if address %}
+            <div class="col-md-6 delivery-address">
+                <h6>{{address.street}} street , houseno : {{address.houseno}} , {{address.city}} , pin
+                    :{{address.pincode}}</h6>
+                <h6 class="delivery-address-h6">Delivery Address: </h6>
+            </div>
+            {% else %}
+            <h6 class="delivery-address-h6">Delivery Address: </h6>
+            {% endif %}
+            <div class="col-md-4 price-details">
+                <table>
+                    <tr>
+                        <th>Subtotal</th>
+                        <td id="total">₹ {{ total }}</td>
+                    </tr>
+                    <tr>
+                        <th>Discount</th>
+                        <td>₹ 0</td>
+                    </tr>
+                    <tr>
+                        <th>Total Amount</th>
+                        <td id="updatedtotal">₹ {{ updatedTotal | default:subtotal }}</td>
+                    </tr>
+                </table>
+                <a href="/checkout">
+                    <button class="checkout-btn">Go to Checkout</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% for i in cart %}
+
+    <div class="card border shadow-none mx-5" style="width: 80%;">
+        <div class="card-body">
+
+            <div class="d-flex align-items-start mx-5">
+                <div class="me-4">
+                    <img src="{{i.product.images.first.image.url}}" alt="Product Image" class="avatar-lg rounded">
+                </div>
+
+                <div class="flex-grow-1  overflow-hidden">
+                    <div>
+                        <h5 class="text-truncate font-size-18"><a href="#" class="text-dark">{{i.product.name}}</a></h5>
+                        <p><span class="fw-medium">{{i.product.description}}</span></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="">
+                        <p class="text-muted mb-2">Price</p>
+                        <h5 class="mb-0 mt-2"><span class="text-muted me-2">
+                            {% if i.product.discount_price != i.product.price %}
+                            <span class="card-text2">{{i.product.price}}</span>
+                        </h5 >₹{{i.product.discount_price}}</h5>
+                        {% else %}
+                    </h5>₹{{i.product.discount_price}}</h5>
+
+                        {% endif %}
+                    </div>
+                </div>
+                <div>
+                    <p class="text-muted">Quantity</p>
+                    <div class="quantity-input">
+                        <a onclick="decrementCount({{ i.id }})"><button>-</button></a>
+                        <h6 id="quantityDisplay{{ i.id }}">{{ i.quantity }}</h6>
+                        <a onclick="incrementCount({{ i.id }})"> <button>+</button> </a>
+                    </div>
+
+                </div>
+                <div>
+                    <a href="{% url 'u:remove' i.id %}" class="text-muted px-1">
+                        <i class="mdi mdi-trash-can-outline"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {%endfor %}
+
+
+    <div id="toaster" class="toaster"></div>
+
+
+    {% else %}
+    <div class="container text-center" style="margin-top: 10%;">
+        <span class="empty-cart-text" style="font-family: 'Inria Serif', serif;">
+            <h5>Your cart seems empty! Go go go!</h5>
+        </span>
+        <div class="mt-3">
+            <a href="{% url 'u:shop' %}" class="btn btn-dark" style="font-family: 'Inria Serif', serif; padding: 1px
+            6px;">Shop With
+                Us</a>
+        </div>
+    </div>
+
+    {% endif %}
+
+
+
+
+    <footer class="site-footer">
+
+        <div class="footer-content">
+            <div class="left-section">
+                <span class="abalone-text">Abalones</span>
+            </div>
+            <div class="center-section">
+                <span class="copyright">copyright©Ebbs|2024</span>
+            </div>
+            <div class="right-content">
+                <a href="#" class="icon instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="icon twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="icon linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+        integrity="sha512-K2h7EtEaLljw8lIbVmSdWYU2PNT9dUd4ft5q3wug+y05ZgSagZBmUOOQFBmtJYWnSKgpHnCg0SX27TzOvtarbg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js"
+        integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script>
+
+        var element = document.getElementById('total')
+        element.innerHTML = {{total}}
+
+    </script> -->
+
+    <script>
+
+        var previousTotal = $('#total').text();
+        var previousUpdatedTotal = $('#updatedtotal').text();
+
+        function incrementCount(id) {
+            $.get("{% url 'u:increment' 0 %}".replace('0', id), function (data) {
+                $('#quantityDisplay' + id).text(data.quantity);
+                if (data.total !== undefined) {
+                    $('#total').text('₹' + data.total);
+                    previousTotal = '₹' + data.total;
+
+                    // Calculate subtotal instantly
+                    var subtotal = parseInt(data.total) - 0; // Subtract delivery charge
+                    $('#updatedtotal').text('₹' + subtotal);
+                }
+                if (data.error) {
+                    showToaster(data.error);
+                }
+            });
+        }
+
+        function decrementCount(id) {
+            $.get("{% url 'u:decrement' 0 %}".replace('0', id), function (data) {
+                $('#quantityDisplay' + id).text(data.quantity);
+                if (data.total !== undefined) {
+                    $('#total').text('₹' + data.total);
+                    previousTotal = '₹' + data.total;
+
+                    // Calculate subtotal instantly
+                    var subtotal = parseInt(data.total) - 0;
+                    $('#updatedtotal').text('₹' + subtotal);
+                }
+                if (data.error) {
+                    showToaster(data.error);
+                }
+            });
+        }
+
+        function showToaster(message) {
+            var toaster = document.getElementById('toaster');
+            toaster.textContent = message;
+            toaster.classList.add('show');
+            setTimeout(function () {
+                toaster.classList.remove('show');
+            }, 3000);
+        }
+
+    </script>
+
+</body>
+
+
+
+
+</html>
